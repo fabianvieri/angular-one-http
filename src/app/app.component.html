@@ -32,7 +32,7 @@
         </button>
       </form>
       <!-- update form -->
-      <form #updateForm="ngForm" (ngSubmit)="onUpdatePost(updateForm.value)">
+      <form #updateForm="ngForm" (ngSubmit)="onUpdatePost()">
         <div class="form-group">
           <label for="id">ID</label>
           <input
@@ -109,7 +109,7 @@
         <li
           class="list-group-item"
           *ngFor="let post of loadedPosts"
-          (click)="onViewPost(post.id)"
+          (click)="onViewPost(post)"
         >
           <h3>{{ post.title }}</h3>
           <p>{{ post.content }}</p>

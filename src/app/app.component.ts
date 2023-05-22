@@ -14,7 +14,7 @@ export class AppComponent {
   loadedPosts: Post[] = [];
   isLoading = false;
 
-  idUpdate: string | undefined = '';
+  idUpdate = '';
   titleUpdate = '';
   contentUpdate = '';
 
@@ -28,21 +28,17 @@ export class AppComponent {
     this.postService.onCreatePost(postData);
   }
 
-  onViewPost(id: string | undefined) {
-    const post = this.loadedPosts.find((p) => p.id === id);
-    console.log(post);
+  onViewPost(post: Post) {
     if (post) {
-      this.idUpdate = post.id;
+      this.idUpdate = post.id!;
       this.titleUpdate = post.title;
       this.contentUpdate = post.content;
     }
   }
 
-  onUpdatePost(postData: Post) {
-    // const updatedPost = postData
-    console.log(postData);
+  onUpdatePost() {
     const post = {
-      [this.idUpdate!]: {
+      [this.idUpdate]: {
         title: this.titleUpdate,
         content: this.contentUpdate,
       },
